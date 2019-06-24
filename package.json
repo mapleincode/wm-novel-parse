@@ -1,5 +1,5 @@
 {
-  "name": "novel",
+  "name": "vm-novel-parse",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
