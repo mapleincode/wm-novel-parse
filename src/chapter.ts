@@ -8,6 +8,11 @@ export interface ChapterOptions {
     chapterNumber: number;
 }
 
+interface ParseOptions {
+    autoIncrement?: boolean; // 是否自增章节
+    strictMode?: boolean; // 是否需要 title 符合格式
+};
+
 export class Chapter {
     private strs: string[] = [];
     private options: ChapterOptions;
@@ -87,7 +92,7 @@ export class Chapter {
 
 type PChapterOptions = Partial<ChapterOptions>;
 
-export function formatChapter(strs: string[]): Chapter[] {
+export function formatChapter(strs: string[], parseOptions?: ParseOptions): Chapter[] {
     const options: PChapterOptions = { volumeStatus: false };
     const titles = ['第一卷', '第1卷', '第一章', '第1章'];
     // 检查是否包含卷
@@ -113,5 +118,5 @@ export function formatChapter(strs: string[]): Chapter[] {
     }
 
     const func = getFormatFunc(titleStr);
-    return func(strs);
+    return func(strs, parseOptions);
 }

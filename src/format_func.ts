@@ -4,8 +4,13 @@ import formatV2 from './format/v2';
 import formatV3 from './format/v3';
 import formatV4 from './format/v4';
 
+interface ParseOptions {
+    autoIncrement?: boolean; // 是否自增章节
+    strictMode?: boolean; // 是否需要 title 符合格式
+};
+
 interface FormatType {
-    (str: string[]): Chapter[];
+    (str: string[], options?: ParseOptions): Chapter[];
 }
 // 1. {第一卷} {第一章} {title}
 // 2. {第一章} {title}

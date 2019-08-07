@@ -1,2 +1,7 @@
 import { Chapter } from '../chapter';
-export default function formatV2(strs: string[]): Chapter[];
+interface ParseOptions {
+    autoIncrement?: boolean;
+    strictMode?: boolean;
+}
+export default function formatV2(strs: string[], options?: ParseOptions): Chapter[];
+export {};
