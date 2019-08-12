@@ -31,6 +31,7 @@ export default function formatV1(strs: string[]) {
 
             if(isCapter(first)) {
                 volumeNumber = oldVolumeNumber;
+                chapterNumber = parseNumber(first.slice(1, -1));
                 zj = first;
                 title = item.join(' ');
             } else if(isVolume(first)) {

@@ -94,7 +94,7 @@ type PChapterOptions = Partial<ChapterOptions>;
 
 export function formatChapter(strs: string[], parseOptions?: ParseOptions): Chapter[] {
     const options: PChapterOptions = { volumeStatus: false };
-    const titles = ['第一卷', '第1卷', '第一章', '第1章'];
+    const titles = ['第一卷', '第1卷', '第一章', '第1章', '第１卷', '第１章'];
     // 检查是否包含卷
     let stop = false;
     let titleStr = '';
