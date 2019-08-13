@@ -79,6 +79,10 @@ export default function chinaNumberParse(num: string, value: number = 0): number
 
     const NextNum = getChinaNumber(num[1]);
 
+    if(num.length > 2 && [ ChinaNumber.Hundred, ChinaNumber.Thousand, ChinaNumber.Hundred ].indexOf(NextNum) < 0) {
+        throw new Error(`Next Num 格式错误, 原文: ${num}`)
+    }
+
     const resultValue = value + ChinaNumberMap[firstNum] * ChinaNumberMap[NextNum];
 
     return chinaNumberParse(num.slice(2), resultValue);
