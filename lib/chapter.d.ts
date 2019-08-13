@@ -3,6 +3,7 @@ export interface ChapterOptions {
     title: string;
     volumeTitle?: string;
     volumeNumber?: number;
+    strictMode?: boolean;
     chapterNumber: number;
 }
 interface ParseOptions {
