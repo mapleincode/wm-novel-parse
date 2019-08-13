@@ -16,7 +16,8 @@ export default function formatV2(strs: string[], options?: ParseOptions) {
         title: '序',
         volumeNumber: 0,
         chapterNumber: 0,
-        volumeStatus: false
+        volumeStatus: false,
+        strictMode: options ? options.strictMode : true
     };
 
     let chapter = new Chapter(chapterOptions);
@@ -29,7 +30,9 @@ export default function formatV2(strs: string[], options?: ParseOptions) {
         }
 
         const first = item.shift() as string;
+
         if (!isCapter(first)) { // 检查是否真的是章节
+            item.unshift(first);
             chapter.push(item.join(' '));
         }
         let chapterNumber = 0;
@@ -39,7 +42,9 @@ export default function formatV2(strs: string[], options?: ParseOptions) {
         } catch(err) {
             if (options && options.strictMode === false) {
                 item.unshift(first);
-                console.error(err.message);
+                if (options.strictMode) {
+                    console.error(err.message);
+                }
             } else {
                 throw err;
             }
@@ -53,7 +58,8 @@ export default function formatV2(strs: string[], options?: ParseOptions) {
         const chapterOptions: ChapterOptions = {
             title: title,
             chapterNumber: chapterNumber,
-            volumeStatus: false
+            volumeStatus: false,
+            strictMode: options ? options.strictMode : true
         };
         chapter = new Chapter(chapterOptions);
     }

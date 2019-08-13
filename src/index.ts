@@ -7,6 +7,11 @@ interface ParseOptions {
 };
 
 export default function done(str: string, options?: ParseOptions) {
+    const _options: ParseOptions = {
+        autoIncrement: options !== undefined ? options.autoIncrement : false,
+        strictMode: options !== undefined ? options.strictMode : true
+    }
+
     const paragraphs = split(str);
     const items = formatChapter(paragraphs, options);
     return items;

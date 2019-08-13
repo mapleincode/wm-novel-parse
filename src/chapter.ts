@@ -5,6 +5,7 @@ export interface ChapterOptions {
     title: string;
     volumeTitle?: string;
     volumeNumber?: number;
+    strictMode?: boolean;
     chapterNumber: number;
 }
 
@@ -40,6 +41,11 @@ export class Chapter {
     }
 
     get fullTitle() {
+        if (this.options.chapterNumber === 0 &&
+            this.options.strictMode === false) {
+            return this.title;
+        }
+
         const _title = `${this.chapterStr} ${this.title}`;
         if (this.options.volumeStatus) {
             return `${this.fullVolumeTitle} ${_title}`;
