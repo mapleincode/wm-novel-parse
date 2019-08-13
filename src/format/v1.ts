@@ -39,6 +39,7 @@ export default function formatV1(strs: string[]) {
                 volumeNumber = parseNumber(first.slice(1, -1));
                 chapterNumber = parseNumber(second.slice(1, -1));
                 title = item.join('');
+                oldVolumeNumber = volumeNumber;
             }
             if(chapterNumber === undefined) {
                 chapter.push(originStr);
