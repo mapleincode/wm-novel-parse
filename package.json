@@ -1,6 +1,6 @@
 {
   "name": "wm-novel-parse",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Chinese Novel Parse.",
   "main": "lib/index.js",
   "scripts": {
