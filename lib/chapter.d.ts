@@ -1,3 +1,4 @@
+import ParseOptions from './ParseOptions';
 export interface ChapterOptions {
     volumeStatus: boolean;
     title: string;
@@ -5,10 +6,6 @@ export interface ChapterOptions {
     volumeNumber?: number;
     strictMode?: boolean;
     chapterNumber: number;
-}
-interface ParseOptions {
-    autoIncrement?: boolean;
-    strictMode?: boolean;
 }
 export declare class Chapter {
     private strs;
@@ -31,4 +28,3 @@ export declare class Chapter {
     };
 }
 export declare function formatChapter(strs: string[], parseOptions?: ParseOptions): Chapter[];
-export {};

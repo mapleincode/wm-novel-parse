@@ -3,11 +3,7 @@ import formatV1 from './format/v1';
 import formatV2 from './format/v2';
 import formatV3 from './format/v3';
 import formatV4 from './format/v4';
-
-interface ParseOptions {
-    autoIncrement?: boolean; // 是否自增章节
-    strictMode?: boolean; // 是否需要 title 符合格式
-};
+import ParseOptions from './ParseOptions';
 
 interface FormatType {
     (str: string[], options?: ParseOptions): Chapter[];

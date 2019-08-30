@@ -1,8 +1,5 @@
 import { Chapter } from './chapter';
-interface ParseOptions {
-    autoIncrement?: boolean;
-    strictMode?: boolean;
-}
+import ParseOptions from './ParseOptions';
 interface FormatType {
     (str: string[], options?: ParseOptions): Chapter[];
 }

@@ -1,18 +1,16 @@
 import { formatChapter } from './chapter';
 import { split } from './utils';
+import ParseOptions from './ParseOptions';
 
-interface ParseOptions {
+interface _ParseOptions {
     autoIncrement?: boolean; // 是否自增章节
     strictMode?: boolean; // 是否需要 title 符合格式
 };
 
-export default function done(str: string, options?: ParseOptions) {
-    const _options: ParseOptions = {
-        autoIncrement: options !== undefined ? options.autoIncrement : false,
-        strictMode: options !== undefined ? options.strictMode : true
-    }
-
+export default function done(str: string, options?: _ParseOptions) {
+    options = options || {};
+    const _options = new ParseOptions(options.autoIncrement, options.strictMode);
     const paragraphs = split(str);
-    const items = formatChapter(paragraphs, options);
+    const items = formatChapter(paragraphs, _options);
     return items;
 }

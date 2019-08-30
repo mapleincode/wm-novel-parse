@@ -1,4 +1,5 @@
 import getFormatFunc from './format_func';
+import ParseOptions from './ParseOptions';
 
 export interface ChapterOptions {
     volumeStatus: boolean;
@@ -8,11 +9,6 @@ export interface ChapterOptions {
     strictMode?: boolean;
     chapterNumber: number;
 }
-
-interface ParseOptions {
-    autoIncrement?: boolean; // 是否自增章节
-    strictMode?: boolean; // 是否需要 title 符合格式
-};
 
 export class Chapter {
     private strs: string[] = [];
